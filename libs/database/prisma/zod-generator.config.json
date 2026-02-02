@@ -1,0 +1,15 @@
+{
+  "mode": "full",
+  "pureModels": false,
+  "variants": {
+    "pure": {
+      "enabled": false
+    },
+    "input": {
+      "enabled": false
+    },
+    "result": {
+      "enabled": false
+    }
+  }
+}

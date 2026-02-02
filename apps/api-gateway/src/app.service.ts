@@ -6,5 +6,4 @@ export class AppService {
   getHello(): string {
     return `Hello World! from api-gateway on port ${SERVICES_PORT.API_GATEWAY}`;
   }
-
 }

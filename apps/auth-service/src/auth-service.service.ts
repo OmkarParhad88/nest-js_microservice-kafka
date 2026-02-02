@@ -1,29 +1,135 @@
 import { KAFKA_SERVICE, KAFKA_TOPIC } from '@app/kafka';
-import { SERVICES_PORT } from '@app/shared';
-import { Inject, Injectable, OnModuleInit } from '@nestjs/common';
+import {
+  ConflictException,
+  Inject,
+  Injectable,
+  NotFoundException,
+  OnModuleInit,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { ClientKafka } from '@nestjs/microservices';
+import { DatabaseService, Prisma } from '@app/database';
+import { JwtService } from '@nestjs/jwt';
+import * as bcrypt from 'bcrypt';
+import { LoginType } from '@app/shared/dto';
 
 @Injectable()
 export class AuthServiceService implements OnModuleInit {
   constructor(
     @Inject(KAFKA_SERVICE) private readonly kafkaService: ClientKafka,
-  ) { }
+    private readonly dbService: DatabaseService,
+    private jwtService: JwtService,
+  ) {}
 
   async onModuleInit() {
-    console.log('AuthService initialized');
-    // this.kafkaService.subscribeToResponseOf('auth-service-consumer-group');
     await this.kafkaService.connect();
   }
 
-  getHello(): string {
-    return `Hello World! from auth-service on port ${SERVICES_PORT.AUTH_SERVICE}`;
+  async userRegister(
+    data: Prisma.UserCreateInput,
+  ): Promise<{ message: string; data: any }> {
+    this.kafkaService.emit(KAFKA_TOPIC.USER_REGISTERED, data);
+    let user = await this.dbService.user.findUnique({
+      where: {
+        email: data.email,
+      },
+    });
+
+    if (user) {
+      throw new ConflictException('User already exists');
+    }
+
+    const hashedPassword: string = await bcrypt.hash(data.password, 10);
+    data.password = hashedPassword;
+    user = await this.dbService.user.create({
+      data: {
+        name: data.name,
+        email: data.email,
+        password: data.password,
+      },
+    });
+
+    this.kafkaService.emit(KAFKA_TOPIC.USER_REGISTERED, {
+      userId: user.id,
+      email: user.email,
+      timestamp: new Date().getTime(),
+    });
+
+    const token: string = this.jwtService.sign({
+      sub: user.id,
+      email: user.email,
+    });
+
+    return {
+      message: 'User registered successfully',
+      data: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        token,
+      },
+    };
   }
 
-  userRegister(name: string) {
-    this.kafkaService.emit(KAFKA_TOPIC.USER_REGISTERED, {
-      name,
-      timeStamp: new Date().toISOString(),
+  async userLogin(data: LoginType): Promise<{ message: string; data: any }> {
+    const user = await this.dbService.user.findUnique({
+      where: {
+        email: data.email,
+      },
     });
-    return 'User registered successfully';
+
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    const isPasswordMatched = await bcrypt.compare(
+      data.password,
+      user.password,
+    );
+
+    if (!isPasswordMatched) {
+      throw new UnauthorizedException('Invalid credentials');
+    }
+
+    const token: string = this.jwtService.sign({
+      sub: user.id,
+      email: user.email,
+    });
+
+    this.kafkaService.emit(KAFKA_TOPIC.USER_LOGIN, {
+      userId: user.id,
+      timestamp: new Date().getTime(),
+    });
+
+    return {
+      message: 'User logged in successfully',
+      data: {
+        user,
+        token,
+      },
+    };
+  }
+
+  async getProfile(userId: string): Promise<{ message: string; data: any }> {
+    const user = await this.dbService.user.findUnique({
+      where: {
+        id: userId,
+      },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        role: true,
+      },
+    });
+
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    return {
+      message: 'User profile fetched successfully',
+      data: user,
+    };
   }
 }
