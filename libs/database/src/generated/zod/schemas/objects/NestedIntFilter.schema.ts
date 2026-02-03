@@ -10,9 +10,7 @@ const nestedintfilterSchema = z
     lte: z.number().int().optional(),
     gt: z.number().int().optional(),
     gte: z.number().int().optional(),
-    not: z
-      .union([z.number().int(), z.lazy(() => NestedIntFilterObjectSchema)])
-      .optional(),
+    not: z.union([z.number().int(), z.lazy(() => NestedIntFilterObjectSchema)]).optional(),
   })
   .strict();
 export const NestedIntFilterObjectSchema: z.ZodType<Prisma.NestedIntFilter> =

@@ -11,7 +11,7 @@ import { ClientKafka } from '@nestjs/microservices';
 import { DatabaseService, Prisma } from '@app/database';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
-import { LoginType } from '@app/shared/dto';
+import { LoginType } from '@app/shared/types';
 
 @Injectable()
 export class AuthServiceService implements OnModuleInit {
@@ -25,9 +25,7 @@ export class AuthServiceService implements OnModuleInit {
     await this.kafkaService.connect();
   }
 
-  async userRegister(
-    data: Prisma.UserCreateInput,
-  ): Promise<{ message: string; data: any }> {
+  async userRegister(data: Prisma.UserCreateInput): Promise<{ message: string; data: any }> {
     this.kafkaService.emit(KAFKA_TOPIC.USER_REGISTERED, data);
     let user = await this.dbService.user.findUnique({
       where: {
@@ -58,6 +56,7 @@ export class AuthServiceService implements OnModuleInit {
     const token: string = this.jwtService.sign({
       sub: user.id,
       email: user.email,
+      role: user.role,
     });
 
     return {
@@ -82,10 +81,7 @@ export class AuthServiceService implements OnModuleInit {
       throw new NotFoundException('User not found');
     }
 
-    const isPasswordMatched = await bcrypt.compare(
-      data.password,
-      user.password,
-    );
+    const isPasswordMatched = await bcrypt.compare(data.password, user.password);
 
     if (!isPasswordMatched) {
       throw new UnauthorizedException('Invalid credentials');

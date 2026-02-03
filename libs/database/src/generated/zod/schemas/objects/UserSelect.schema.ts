@@ -1,5 +1,7 @@
 import * as z from 'zod';
 import type { Prisma } from '../../../prisma/client';
+import { EventFindManySchema as EventFindManySchema } from '../findManyEvent.schema';
+import { UserCountOutputTypeArgsObjectSchema as UserCountOutputTypeArgsObjectSchema } from './UserCountOutputTypeArgs.schema';
 
 const makeSchema = () =>
   z
@@ -11,6 +13,8 @@ const makeSchema = () =>
       role: z.boolean().optional(),
       createdAt: z.boolean().optional(),
       updatedAt: z.boolean().optional(),
+      events: z.union([z.boolean(), z.lazy(() => EventFindManySchema)]).optional(),
+      _count: z.union([z.boolean(), z.lazy(() => UserCountOutputTypeArgsObjectSchema)]).optional(),
     })
     .strict();
 export const UserSelectObjectSchema: z.ZodType<Prisma.UserSelect> =

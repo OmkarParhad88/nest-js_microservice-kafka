@@ -17,9 +17,7 @@ const makeSchema = () =>
       startsWith: z.string().optional(),
       endsWith: z.string().optional(),
       mode: QueryModeSchema.optional(),
-      not: z
-        .union([z.string(), z.lazy(() => NestedStringFilterObjectSchema)])
-        .optional(),
+      not: z.union([z.string(), z.lazy(() => NestedStringFilterObjectSchema)]).optional(),
     })
     .strict();
 export const StringFilterObjectSchema: z.ZodType<Prisma.StringFilter> =

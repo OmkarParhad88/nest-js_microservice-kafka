@@ -1,0 +1,22 @@
+import * as z from 'zod';
+import type { Prisma } from '../../../prisma/client';
+
+const makeSchema = () =>
+  z
+    .object({
+      id: z.literal(true).optional(),
+      title: z.literal(true).optional(),
+      description: z.literal(true).optional(),
+      date: z.literal(true).optional(),
+      location: z.literal(true).optional(),
+      capacity: z.literal(true).optional(),
+      price: z.literal(true).optional(),
+      status: z.literal(true).optional(),
+      organizerId: z.literal(true).optional(),
+      createdAt: z.literal(true).optional(),
+      updatedAt: z.literal(true).optional(),
+    })
+    .strict();
+export const EventMinAggregateInputObjectSchema: z.ZodType<Prisma.EventMinAggregateInputType> =
+  makeSchema() as unknown as z.ZodType<Prisma.EventMinAggregateInputType>;
+export const EventMinAggregateInputObjectZodSchema = makeSchema();

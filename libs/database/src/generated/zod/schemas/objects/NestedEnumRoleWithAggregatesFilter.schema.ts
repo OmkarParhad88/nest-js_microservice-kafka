@@ -10,10 +10,7 @@ const nestedenumrolewithaggregatesfilterSchema = z
     in: RoleSchema.array().optional(),
     notIn: RoleSchema.array().optional(),
     not: z
-      .union([
-        RoleSchema,
-        z.lazy(() => NestedEnumRoleWithAggregatesFilterObjectSchema),
-      ])
+      .union([RoleSchema, z.lazy(() => NestedEnumRoleWithAggregatesFilterObjectSchema)])
       .optional(),
     _count: z.lazy(() => NestedIntFilterObjectSchema).optional(),
     _min: z.lazy(() => NestedEnumRoleFilterObjectSchema).optional(),

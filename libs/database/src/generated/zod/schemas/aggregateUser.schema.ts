@@ -19,9 +19,7 @@ export const UserAggregateSchema: z.ZodType<Prisma.UserAggregateArgs> = z
     cursor: UserWhereUniqueInputObjectSchema.optional(),
     take: z.number().optional(),
     skip: z.number().optional(),
-    _count: z
-      .union([z.literal(true), UserCountAggregateInputObjectSchema])
-      .optional(),
+    _count: z.union([z.literal(true), UserCountAggregateInputObjectSchema]).optional(),
     _min: UserMinAggregateInputObjectSchema.optional(),
     _max: UserMaxAggregateInputObjectSchema.optional(),
   })
@@ -39,9 +37,7 @@ export const UserAggregateZodSchema = z
     cursor: UserWhereUniqueInputObjectSchema.optional(),
     take: z.number().optional(),
     skip: z.number().optional(),
-    _count: z
-      .union([z.literal(true), UserCountAggregateInputObjectSchema])
-      .optional(),
+    _count: z.union([z.literal(true), UserCountAggregateInputObjectSchema]).optional(),
     _min: UserMinAggregateInputObjectSchema.optional(),
     _max: UserMaxAggregateInputObjectSchema.optional(),
   })

@@ -17,9 +17,7 @@ export const UserCountSchema: z.ZodType<Prisma.UserCountArgs> = z
     cursor: UserWhereUniqueInputObjectSchema.optional(),
     take: z.number().optional(),
     skip: z.number().optional(),
-    select: z
-      .union([z.literal(true), UserCountAggregateInputObjectSchema])
-      .optional(),
+    select: z.union([z.literal(true), UserCountAggregateInputObjectSchema]).optional(),
   })
   .strict() as unknown as z.ZodType<Prisma.UserCountArgs>;
 
@@ -35,8 +33,6 @@ export const UserCountZodSchema = z
     cursor: UserWhereUniqueInputObjectSchema.optional(),
     take: z.number().optional(),
     skip: z.number().optional(),
-    select: z
-      .union([z.literal(true), UserCountAggregateInputObjectSchema])
-      .optional(),
+    select: z.union([z.literal(true), UserCountAggregateInputObjectSchema]).optional(),
   })
   .strict();

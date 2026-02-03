@@ -10,9 +10,7 @@ const nesteduuidfilterSchema = z
     lte: z.string().optional(),
     gt: z.string().optional(),
     gte: z.string().optional(),
-    not: z
-      .union([z.string(), z.lazy(() => NestedUuidFilterObjectSchema)])
-      .optional(),
+    not: z.union([z.string(), z.lazy(() => NestedUuidFilterObjectSchema)]).optional(),
   })
   .strict();
 export const NestedUuidFilterObjectSchema: z.ZodType<Prisma.NestedUuidFilter> =

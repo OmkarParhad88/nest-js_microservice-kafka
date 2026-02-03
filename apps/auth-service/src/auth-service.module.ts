@@ -9,6 +9,7 @@ import { ZodValidationPipe } from 'nestjs-zod';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
+import { JwtStrategy } from './jwt.strategy';
 
 @Module({
   imports: [
@@ -37,6 +38,7 @@ import { JwtModule } from '@nestjs/jwt';
       provide: APP_FILTER,
       useClass: HttpExceptionFilter,
     },
+    JwtStrategy,
   ],
 })
-export class AuthServiceModule {}
+export class AuthServiceModule { }

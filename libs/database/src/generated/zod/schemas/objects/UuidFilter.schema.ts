@@ -14,9 +14,7 @@ const makeSchema = () =>
       gt: z.string().optional(),
       gte: z.string().optional(),
       mode: QueryModeSchema.optional(),
-      not: z
-        .union([z.string(), z.lazy(() => NestedUuidFilterObjectSchema)])
-        .optional(),
+      not: z.union([z.string(), z.lazy(() => NestedUuidFilterObjectSchema)]).optional(),
     })
     .strict();
 export const UuidFilterObjectSchema: z.ZodType<Prisma.UuidFilter> =

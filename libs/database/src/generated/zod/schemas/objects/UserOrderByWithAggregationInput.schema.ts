@@ -8,16 +8,14 @@ import { UserMinOrderByAggregateInputObjectSchema as UserMinOrderByAggregateInpu
 const makeSchema = () =>
   z
     .object({
-      id: SortOrderSchema.optional(),
+      id: z.uuid().optional(),
       email: z.email().optional(),
       name: SortOrderSchema.optional(),
       password: SortOrderSchema.optional(),
       role: SortOrderSchema.optional(),
       createdAt: SortOrderSchema.optional(),
       updatedAt: SortOrderSchema.optional(),
-      _count: z
-        .lazy(() => UserCountOrderByAggregateInputObjectSchema)
-        .optional(),
+      _count: z.lazy(() => UserCountOrderByAggregateInputObjectSchema).optional(),
       _max: z.lazy(() => UserMaxOrderByAggregateInputObjectSchema).optional(),
       _min: z.lazy(() => UserMinOrderByAggregateInputObjectSchema).optional(),
     })

@@ -11,6 +11,7 @@
     "start": "nest start",
     "dev": "nest start --watch",
     "dev:auth": "nest start --watch auth-service",
+    "dev:event": "nest start --watch event-service",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/apps/api-gateway/main",
@@ -19,7 +20,9 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./apps/api-gateway/test/jest-e2e.json"
+    "test:e2e": "jest --config ./apps/api-gateway/test/jest-e2e.json",
+    "db:generate": "prisma generate --schema=libs/database/prisma/schema.prisma",
+    "db:migrate": "cd libs/database && npx prisma migrate dev --name init --schema=libs/database/prisma/schema.prisma"
   },
   "dependencies": {
     "@nestjs/axios": "^4.0.1",

@@ -1,6 +1,11 @@
 import { createZodDto } from 'nestjs-zod';
 import { UserCreateInputObjectZodSchema } from '@app/database';
 
-export class CreateUserDto extends createZodDto(
-  UserCreateInputObjectZodSchema,
-) {}
+export const CreateUserSchema = UserCreateInputObjectZodSchema.omit({
+  createdAt: true,
+  id: true,
+  events: true,
+  role: true,
+});
+
+export class CreateUserDto extends createZodDto(CreateUserSchema) { }

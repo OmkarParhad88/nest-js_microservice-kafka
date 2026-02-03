@@ -16,10 +16,7 @@ const nestedstringwithaggregatesfilterSchema = z
     startsWith: z.string().optional(),
     endsWith: z.string().optional(),
     not: z
-      .union([
-        z.string(),
-        z.lazy(() => NestedStringWithAggregatesFilterObjectSchema),
-      ])
+      .union([z.string(), z.lazy(() => NestedStringWithAggregatesFilterObjectSchema)])
       .optional(),
     _count: z.lazy(() => NestedIntFilterObjectSchema).optional(),
     _min: z.lazy(() => NestedStringFilterObjectSchema).optional(),

@@ -7,9 +7,7 @@ const nestedenumrolefilterSchema = z
     equals: RoleSchema.optional(),
     in: RoleSchema.array().optional(),
     notIn: RoleSchema.array().optional(),
-    not: z
-      .union([RoleSchema, z.lazy(() => NestedEnumRoleFilterObjectSchema)])
-      .optional(),
+    not: z.union([RoleSchema, z.lazy(() => NestedEnumRoleFilterObjectSchema)]).optional(),
   })
   .strict();
 export const NestedEnumRoleFilterObjectSchema: z.ZodType<Prisma.NestedEnumRoleFilter> =

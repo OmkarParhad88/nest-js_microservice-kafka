@@ -26,6 +26,7 @@ enum Role {
 }
 
 model User {
+  /// @zod.uuid()
   id        String   @id @default(uuid()) @db.Uuid
   /// @zod.email()
   email     String   @unique @db.VarChar(191)
@@ -34,4 +35,34 @@ model User {
   role      Role     @default(USER)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  events    Event[]
+  tickets   Ticket[]
+
+  @@index([createdAt])
+}
+
+enum EventStatus {
+  DRAFT
+  PUBLISHED
+  CANCELLED
+}
+
+model Event {
+  /// @zod.uuid()
+  id          String      @id @default(uuid()) @db.Uuid
+  title       String      @db.VarChar(191)
+  description String?     @db.Text
+  date        DateTime    @db.Timestamp
+  location    String      @db.VarChar(255)
+  capacity    Int         @default(100)
+  price       Int         @default(0)
+  status      EventStatus @default(DRAFT)
+  /// @zod.uuid()
+  organizerId String      @db.Uuid
+  organizer   User        @relation(fields: [organizerId], references: [id])
+  tickets     Ticket[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  @@index([createdAt])
 }

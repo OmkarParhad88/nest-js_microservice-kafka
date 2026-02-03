@@ -21,9 +21,7 @@ export const UserGroupBySchema: z.ZodType<Prisma.UserGroupByArgs> = z
     take: z.number().optional(),
     skip: z.number().optional(),
     by: z.array(UserScalarFieldEnumSchema),
-    _count: z
-      .union([z.literal(true), UserCountAggregateInputObjectSchema])
-      .optional(),
+    _count: z.union([z.literal(true), UserCountAggregateInputObjectSchema]).optional(),
     _min: UserMinAggregateInputObjectSchema.optional(),
     _max: UserMaxAggregateInputObjectSchema.optional(),
   })
@@ -42,9 +40,7 @@ export const UserGroupByZodSchema = z
     take: z.number().optional(),
     skip: z.number().optional(),
     by: z.array(UserScalarFieldEnumSchema),
-    _count: z
-      .union([z.literal(true), UserCountAggregateInputObjectSchema])
-      .optional(),
+    _count: z.union([z.literal(true), UserCountAggregateInputObjectSchema]).optional(),
     _min: UserMinAggregateInputObjectSchema.optional(),
     _max: UserMaxAggregateInputObjectSchema.optional(),
   })

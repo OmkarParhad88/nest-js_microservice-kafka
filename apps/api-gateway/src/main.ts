@@ -5,8 +5,6 @@ import { SERVICES_PORT } from '@app/shared';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   await app.listen(SERVICES_PORT.API_GATEWAY);
-  console.log(
-    `API Gateway is running on http://localhost:${SERVICES_PORT.API_GATEWAY}`,
-  );
+  console.log(`API Gateway is running on http://localhost:${SERVICES_PORT.API_GATEWAY}`);
 }
 bootstrap();

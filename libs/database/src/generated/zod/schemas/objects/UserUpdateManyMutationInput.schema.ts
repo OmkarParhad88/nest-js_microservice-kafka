@@ -9,46 +9,25 @@ const makeSchema = () =>
   z
     .object({
       id: z
-        .union([
-          z.string(),
-          z.lazy(() => StringFieldUpdateOperationsInputObjectSchema),
-        ])
+        .union([z.uuid(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)])
         .optional(),
       email: z
-        .union([
-          z.email().max(191),
-          z.lazy(() => StringFieldUpdateOperationsInputObjectSchema),
-        ])
+        .union([z.email().max(191), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)])
         .optional(),
       name: z
-        .union([
-          z.string().max(191),
-          z.lazy(() => StringFieldUpdateOperationsInputObjectSchema),
-        ])
+        .union([z.string().max(191), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)])
         .optional(),
       password: z
-        .union([
-          z.string().max(255),
-          z.lazy(() => StringFieldUpdateOperationsInputObjectSchema),
-        ])
+        .union([z.string().max(255), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)])
         .optional(),
       role: z
-        .union([
-          RoleSchema,
-          z.lazy(() => EnumRoleFieldUpdateOperationsInputObjectSchema),
-        ])
+        .union([RoleSchema, z.lazy(() => EnumRoleFieldUpdateOperationsInputObjectSchema)])
         .optional(),
       createdAt: z
-        .union([
-          z.coerce.date(),
-          z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema),
-        ])
+        .union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)])
         .optional(),
       updatedAt: z
-        .union([
-          z.coerce.date(),
-          z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema),
-        ])
+        .union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)])
         .optional(),
     })
     .strict();

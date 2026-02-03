@@ -20,10 +20,7 @@ const makeSchema = () =>
       endsWith: z.string().optional(),
       mode: QueryModeSchema.optional(),
       not: z
-        .union([
-          z.string(),
-          z.lazy(() => NestedStringWithAggregatesFilterObjectSchema),
-        ])
+        .union([z.string(), z.lazy(() => NestedStringWithAggregatesFilterObjectSchema)])
         .optional(),
       _count: z.lazy(() => NestedIntFilterObjectSchema).optional(),
       _min: z.lazy(() => NestedStringFilterObjectSchema).optional(),

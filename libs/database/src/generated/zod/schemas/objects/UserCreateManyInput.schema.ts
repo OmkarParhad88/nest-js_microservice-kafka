@@ -5,7 +5,7 @@ import { RoleSchema } from '../enums/Role.schema';
 const makeSchema = () =>
   z
     .object({
-      id: z.string().optional(),
+      id: z.uuid().optional(),
       email: z.email().max(191),
       name: z.string().max(191),
       password: z.string().max(255),

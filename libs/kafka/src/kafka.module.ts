@@ -1,10 +1,6 @@
 import { DynamicModule, Module } from '@nestjs/common';
 import { Transport, ClientsModule } from '@nestjs/microservices';
-import {
-  KAFKA_BROKER,
-  KAFKA_CLIENT_ID,
-  KAFKA_CONSUMER_GROUP,
-} from './constant/kafka.constant';
+import { KAFKA_BROKER, KAFKA_CLIENT_ID, KAFKA_CONSUMER_GROUP } from './constant/kafka.constant';
 
 export const KAFKA_SERVICE = 'KAFKA_SERVICE';
 

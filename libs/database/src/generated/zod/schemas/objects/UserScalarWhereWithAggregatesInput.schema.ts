@@ -24,44 +24,22 @@ const userscalarwherewithaggregatesinputSchema = z
         z.lazy(() => UserScalarWhereWithAggregatesInputObjectSchema).array(),
       ])
       .optional(),
-    id: z
-      .union([z.lazy(() => UuidWithAggregatesFilterObjectSchema), z.string()])
-      .optional(),
+    id: z.union([z.lazy(() => UuidWithAggregatesFilterObjectSchema), z.uuid()]).optional(),
     email: z
-      .union([
-        z.lazy(() => StringWithAggregatesFilterObjectSchema),
-        z.email().max(191),
-      ])
+      .union([z.lazy(() => StringWithAggregatesFilterObjectSchema), z.email().max(191)])
       .optional(),
     name: z
-      .union([
-        z.lazy(() => StringWithAggregatesFilterObjectSchema),
-        z.string().max(191),
-      ])
+      .union([z.lazy(() => StringWithAggregatesFilterObjectSchema), z.string().max(191)])
       .optional(),
     password: z
-      .union([
-        z.lazy(() => StringWithAggregatesFilterObjectSchema),
-        z.string().max(255),
-      ])
+      .union([z.lazy(() => StringWithAggregatesFilterObjectSchema), z.string().max(255)])
       .optional(),
-    role: z
-      .union([
-        z.lazy(() => EnumRoleWithAggregatesFilterObjectSchema),
-        RoleSchema,
-      ])
-      .optional(),
+    role: z.union([z.lazy(() => EnumRoleWithAggregatesFilterObjectSchema), RoleSchema]).optional(),
     createdAt: z
-      .union([
-        z.lazy(() => DateTimeWithAggregatesFilterObjectSchema),
-        z.coerce.date(),
-      ])
+      .union([z.lazy(() => DateTimeWithAggregatesFilterObjectSchema), z.coerce.date()])
       .optional(),
     updatedAt: z
-      .union([
-        z.lazy(() => DateTimeWithAggregatesFilterObjectSchema),
-        z.coerce.date(),
-      ])
+      .union([z.lazy(() => DateTimeWithAggregatesFilterObjectSchema), z.coerce.date()])
       .optional(),
   })
   .strict();

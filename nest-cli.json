@@ -3,7 +3,6 @@
   "collection": "@nestjs/schematics",
   "sourceRoot": "apps/api-gateway/src",
   "compilerOptions": {
-    "deleteOutDir": true,
     "webpack": true,
     "tsConfigPath": "apps/api-gateway/tsconfig.app.json"
   },
@@ -37,6 +36,15 @@
         "tsConfigPath": "libs/database/tsconfig.lib.json"
       }
     },
+    "event-service": {
+      "type": "application",
+      "root": "apps/event-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/event-service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/event-service/tsconfig.app.json"
+      }
+    },
     "kafka": {
       "type": "library",
       "root": "libs/kafka",
@@ -53,6 +61,15 @@
       "sourceRoot": "libs/shared/src",
       "compilerOptions": {
         "tsConfigPath": "libs/shared/tsconfig.lib.json"
+      }
+    },
+    "ticket-service": {
+      "type": "application",
+      "root": "apps/ticket-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/ticket-service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/ticket-service/tsconfig.app.json"
       }
     }
   }

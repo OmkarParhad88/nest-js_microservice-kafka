@@ -4,7 +4,7 @@ import type { Prisma } from '../../../prisma/client';
 const makeSchema = () =>
   z
     .object({
-      id: z.string().optional(),
+      id: z.uuid().optional(),
       email: z.email().max(191).optional(),
     })
     .strict();

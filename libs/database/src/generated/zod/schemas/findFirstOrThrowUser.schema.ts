@@ -1,5 +1,6 @@
 import type { Prisma } from '../../prisma/client';
 import * as z from 'zod';
+import { UserIncludeObjectSchema as UserIncludeObjectSchema } from './objects/UserInclude.schema';
 import { UserOrderByWithRelationInputObjectSchema as UserOrderByWithRelationInputObjectSchema } from './objects/UserOrderByWithRelationInput.schema';
 import { UserWhereInputObjectSchema as UserWhereInputObjectSchema } from './objects/UserWhereInput.schema';
 import { UserWhereUniqueInputObjectSchema as UserWhereUniqueInputObjectSchema } from './objects/UserWhereUniqueInput.schema';
@@ -17,6 +18,8 @@ export const UserFindFirstOrThrowSelectSchema: z.ZodType<Prisma.UserSelect> = z
     role: z.boolean().optional(),
     createdAt: z.boolean().optional(),
     updatedAt: z.boolean().optional(),
+    events: z.boolean().optional(),
+    _count: z.boolean().optional(),
   })
   .strict() as unknown as z.ZodType<Prisma.UserSelect>;
 
@@ -29,32 +32,15 @@ export const UserFindFirstOrThrowSelectZodSchema = z
     role: z.boolean().optional(),
     createdAt: z.boolean().optional(),
     updatedAt: z.boolean().optional(),
+    events: z.boolean().optional(),
+    _count: z.boolean().optional(),
   })
   .strict();
 
-export const UserFindFirstOrThrowSchema: z.ZodType<Prisma.UserFindFirstOrThrowArgs> =
-  z
-    .object({
-      select: UserFindFirstOrThrowSelectSchema.optional(),
-      orderBy: z
-        .union([
-          UserOrderByWithRelationInputObjectSchema,
-          UserOrderByWithRelationInputObjectSchema.array(),
-        ])
-        .optional(),
-      where: UserWhereInputObjectSchema.optional(),
-      cursor: UserWhereUniqueInputObjectSchema.optional(),
-      take: z.number().optional(),
-      skip: z.number().optional(),
-      distinct: z
-        .union([UserScalarFieldEnumSchema, UserScalarFieldEnumSchema.array()])
-        .optional(),
-    })
-    .strict() as unknown as z.ZodType<Prisma.UserFindFirstOrThrowArgs>;
-
-export const UserFindFirstOrThrowZodSchema = z
+export const UserFindFirstOrThrowSchema: z.ZodType<Prisma.UserFindFirstOrThrowArgs> = z
   .object({
     select: UserFindFirstOrThrowSelectSchema.optional(),
+    include: z.lazy(() => UserIncludeObjectSchema.optional()),
     orderBy: z
       .union([
         UserOrderByWithRelationInputObjectSchema,
@@ -65,8 +51,24 @@ export const UserFindFirstOrThrowZodSchema = z
     cursor: UserWhereUniqueInputObjectSchema.optional(),
     take: z.number().optional(),
     skip: z.number().optional(),
-    distinct: z
-      .union([UserScalarFieldEnumSchema, UserScalarFieldEnumSchema.array()])
+    distinct: z.union([UserScalarFieldEnumSchema, UserScalarFieldEnumSchema.array()]).optional(),
+  })
+  .strict() as unknown as z.ZodType<Prisma.UserFindFirstOrThrowArgs>;
+
+export const UserFindFirstOrThrowZodSchema = z
+  .object({
+    select: UserFindFirstOrThrowSelectSchema.optional(),
+    include: z.lazy(() => UserIncludeObjectSchema.optional()),
+    orderBy: z
+      .union([
+        UserOrderByWithRelationInputObjectSchema,
+        UserOrderByWithRelationInputObjectSchema.array(),
+      ])
       .optional(),
+    where: UserWhereInputObjectSchema.optional(),
+    cursor: UserWhereUniqueInputObjectSchema.optional(),
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    distinct: z.union([UserScalarFieldEnumSchema, UserScalarFieldEnumSchema.array()]).optional(),
   })
   .strict();

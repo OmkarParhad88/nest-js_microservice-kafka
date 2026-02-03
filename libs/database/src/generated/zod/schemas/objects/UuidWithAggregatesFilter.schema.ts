@@ -17,10 +17,7 @@ const makeSchema = () =>
       gte: z.string().optional(),
       mode: QueryModeSchema.optional(),
       not: z
-        .union([
-          z.string(),
-          z.lazy(() => NestedUuidWithAggregatesFilterObjectSchema),
-        ])
+        .union([z.string(), z.lazy(() => NestedUuidWithAggregatesFilterObjectSchema)])
         .optional(),
       _count: z.lazy(() => NestedIntFilterObjectSchema).optional(),
       _min: z.lazy(() => NestedStringFilterObjectSchema).optional(),
