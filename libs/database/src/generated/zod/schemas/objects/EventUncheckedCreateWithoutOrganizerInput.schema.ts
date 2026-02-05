@@ -1,26 +1,20 @@
 import * as z from 'zod';
 import type { Prisma } from '../../../prisma/client';
 import { EventStatusSchema } from '../enums/EventStatus.schema';
-import { TicketUncheckedCreateNestedManyWithoutEventInputObjectSchema as TicketUncheckedCreateNestedManyWithoutEventInputObjectSchema } from './TicketUncheckedCreateNestedManyWithoutEventInput.schema';
+import { TicketUncheckedCreateNestedManyWithoutEventInputObjectSchema as TicketUncheckedCreateNestedManyWithoutEventInputObjectSchema } from './TicketUncheckedCreateNestedManyWithoutEventInput.schema'
 
-const makeSchema = () =>
-  z
-    .object({
-      id: z.string().optional(),
-      title: z.string(),
-      description: z.string().optional().nullable(),
-      date: z.coerce.date(),
-      location: z.string(),
-      capacity: z.number().int().optional(),
-      price: z.number().int().optional(),
-      status: EventStatusSchema.optional(),
-      createdAt: z.coerce.date().optional(),
-      updatedAt: z.coerce.date().optional(),
-      tickets: z
-        .lazy(() => TicketUncheckedCreateNestedManyWithoutEventInputObjectSchema)
-        .optional(),
-    })
-    .strict();
-export const EventUncheckedCreateWithoutOrganizerInputObjectSchema: z.ZodType<Prisma.EventUncheckedCreateWithoutOrganizerInput> =
-  makeSchema() as unknown as z.ZodType<Prisma.EventUncheckedCreateWithoutOrganizerInput>;
+const makeSchema = () => z.object({
+  id: z.string().optional(),
+  title: z.string(),
+  description: z.string().optional().nullable(),
+  date: z.coerce.date(),
+  location: z.string(),
+  capacity: z.number().int().optional(),
+  price: z.number().int().optional(),
+  status: EventStatusSchema.optional(),
+  createdAt: z.coerce.date().optional(),
+  updatedAt: z.coerce.date().optional(),
+  tickets: z.lazy(() => TicketUncheckedCreateNestedManyWithoutEventInputObjectSchema).optional()
+}).strict();
+export const EventUncheckedCreateWithoutOrganizerInputObjectSchema: z.ZodType<Prisma.EventUncheckedCreateWithoutOrganizerInput> = makeSchema() as unknown as z.ZodType<Prisma.EventUncheckedCreateWithoutOrganizerInput>;
 export const EventUncheckedCreateWithoutOrganizerInputObjectZodSchema = makeSchema();

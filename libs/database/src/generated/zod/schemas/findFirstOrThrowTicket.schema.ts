@@ -9,8 +9,7 @@ import { TicketScalarFieldEnumSchema } from './enums/TicketScalarFieldEnum.schem
 // Select schema needs to be in file to prevent circular imports
 //------------------------------------------------------
 
-export const TicketFindFirstOrThrowSelectSchema: z.ZodType<Prisma.TicketSelect> = z
-  .object({
+export const TicketFindFirstOrThrowSelectSchema: z.ZodType<Prisma.TicketSelect> = z.object({
     id: z.boolean().optional(),
     eventId: z.boolean().optional(),
     event: z.boolean().optional(),
@@ -23,12 +22,10 @@ export const TicketFindFirstOrThrowSelectSchema: z.ZodType<Prisma.TicketSelect> 
     purchasedAt: z.boolean().optional(),
     checkedInAt: z.boolean().optional(),
     createdAt: z.boolean().optional(),
-    updatedAt: z.boolean().optional(),
-  })
-  .strict() as unknown as z.ZodType<Prisma.TicketSelect>;
+    updatedAt: z.boolean().optional()
+  }).strict() as unknown as z.ZodType<Prisma.TicketSelect>;
 
-export const TicketFindFirstOrThrowSelectZodSchema = z
-  .object({
+export const TicketFindFirstOrThrowSelectZodSchema = z.object({
     id: z.boolean().optional(),
     eventId: z.boolean().optional(),
     event: z.boolean().optional(),
@@ -41,46 +38,9 @@ export const TicketFindFirstOrThrowSelectZodSchema = z
     purchasedAt: z.boolean().optional(),
     checkedInAt: z.boolean().optional(),
     createdAt: z.boolean().optional(),
-    updatedAt: z.boolean().optional(),
-  })
-  .strict();
+    updatedAt: z.boolean().optional()
+  }).strict();
 
-export const TicketFindFirstOrThrowSchema: z.ZodType<Prisma.TicketFindFirstOrThrowArgs> = z
-  .object({
-    select: TicketFindFirstOrThrowSelectSchema.optional(),
-    include: z.lazy(() => TicketIncludeObjectSchema.optional()),
-    orderBy: z
-      .union([
-        TicketOrderByWithRelationInputObjectSchema,
-        TicketOrderByWithRelationInputObjectSchema.array(),
-      ])
-      .optional(),
-    where: TicketWhereInputObjectSchema.optional(),
-    cursor: TicketWhereUniqueInputObjectSchema.optional(),
-    take: z.number().optional(),
-    skip: z.number().optional(),
-    distinct: z
-      .union([TicketScalarFieldEnumSchema, TicketScalarFieldEnumSchema.array()])
-      .optional(),
-  })
-  .strict() as unknown as z.ZodType<Prisma.TicketFindFirstOrThrowArgs>;
+export const TicketFindFirstOrThrowSchema: z.ZodType<Prisma.TicketFindFirstOrThrowArgs> = z.object({ select: TicketFindFirstOrThrowSelectSchema.optional(), include: z.lazy(() => TicketIncludeObjectSchema.optional()), orderBy: z.union([TicketOrderByWithRelationInputObjectSchema, TicketOrderByWithRelationInputObjectSchema.array()]).optional(), where: TicketWhereInputObjectSchema.optional(), cursor: TicketWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), distinct: z.union([TicketScalarFieldEnumSchema, TicketScalarFieldEnumSchema.array()]).optional() }).strict() as unknown as z.ZodType<Prisma.TicketFindFirstOrThrowArgs>;
 
-export const TicketFindFirstOrThrowZodSchema = z
-  .object({
-    select: TicketFindFirstOrThrowSelectSchema.optional(),
-    include: z.lazy(() => TicketIncludeObjectSchema.optional()),
-    orderBy: z
-      .union([
-        TicketOrderByWithRelationInputObjectSchema,
-        TicketOrderByWithRelationInputObjectSchema.array(),
-      ])
-      .optional(),
-    where: TicketWhereInputObjectSchema.optional(),
-    cursor: TicketWhereUniqueInputObjectSchema.optional(),
-    take: z.number().optional(),
-    skip: z.number().optional(),
-    distinct: z
-      .union([TicketScalarFieldEnumSchema, TicketScalarFieldEnumSchema.array()])
-      .optional(),
-  })
-  .strict();
+export const TicketFindFirstOrThrowZodSchema = z.object({ select: TicketFindFirstOrThrowSelectSchema.optional(), include: z.lazy(() => TicketIncludeObjectSchema.optional()), orderBy: z.union([TicketOrderByWithRelationInputObjectSchema, TicketOrderByWithRelationInputObjectSchema.array()]).optional(), where: TicketWhereInputObjectSchema.optional(), cursor: TicketWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), distinct: z.union([TicketScalarFieldEnumSchema, TicketScalarFieldEnumSchema.array()]).optional() }).strict();

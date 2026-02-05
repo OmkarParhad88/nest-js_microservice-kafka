@@ -4,18 +4,6 @@ import { TicketSelectObjectSchema as TicketSelectObjectSchema } from './objects/
 import { TicketIncludeObjectSchema as TicketIncludeObjectSchema } from './objects/TicketInclude.schema';
 import { TicketWhereUniqueInputObjectSchema as TicketWhereUniqueInputObjectSchema } from './objects/TicketWhereUniqueInput.schema';
 
-export const TicketDeleteOneSchema: z.ZodType<Prisma.TicketDeleteArgs> = z
-  .object({
-    select: TicketSelectObjectSchema.optional(),
-    include: TicketIncludeObjectSchema.optional(),
-    where: TicketWhereUniqueInputObjectSchema,
-  })
-  .strict() as unknown as z.ZodType<Prisma.TicketDeleteArgs>;
+export const TicketDeleteOneSchema: z.ZodType<Prisma.TicketDeleteArgs> = z.object({ select: TicketSelectObjectSchema.optional(), include: TicketIncludeObjectSchema.optional(), where: TicketWhereUniqueInputObjectSchema }).strict() as unknown as z.ZodType<Prisma.TicketDeleteArgs>;
 
-export const TicketDeleteOneZodSchema = z
-  .object({
-    select: TicketSelectObjectSchema.optional(),
-    include: TicketIncludeObjectSchema.optional(),
-    where: TicketWhereUniqueInputObjectSchema,
-  })
-  .strict();
+export const TicketDeleteOneZodSchema = z.object({ select: TicketSelectObjectSchema.optional(), include: TicketIncludeObjectSchema.optional(), where: TicketWhereUniqueInputObjectSchema }).strict();

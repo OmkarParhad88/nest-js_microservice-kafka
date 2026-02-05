@@ -9,8 +9,7 @@ import { EventScalarFieldEnumSchema } from './enums/EventScalarFieldEnum.schema'
 // Select schema needs to be in file to prevent circular imports
 //------------------------------------------------------
 
-export const EventFindManySelectSchema: z.ZodType<Prisma.EventSelect> = z
-  .object({
+export const EventFindManySelectSchema: z.ZodType<Prisma.EventSelect> = z.object({
     id: z.boolean().optional(),
     title: z.boolean().optional(),
     description: z.boolean().optional(),
@@ -24,12 +23,10 @@ export const EventFindManySelectSchema: z.ZodType<Prisma.EventSelect> = z
     tickets: z.boolean().optional(),
     createdAt: z.boolean().optional(),
     updatedAt: z.boolean().optional(),
-    _count: z.boolean().optional(),
-  })
-  .strict() as unknown as z.ZodType<Prisma.EventSelect>;
+    _count: z.boolean().optional()
+  }).strict() as unknown as z.ZodType<Prisma.EventSelect>;
 
-export const EventFindManySelectZodSchema = z
-  .object({
+export const EventFindManySelectZodSchema = z.object({
     id: z.boolean().optional(),
     title: z.boolean().optional(),
     description: z.boolean().optional(),
@@ -43,42 +40,9 @@ export const EventFindManySelectZodSchema = z
     tickets: z.boolean().optional(),
     createdAt: z.boolean().optional(),
     updatedAt: z.boolean().optional(),
-    _count: z.boolean().optional(),
-  })
-  .strict();
+    _count: z.boolean().optional()
+  }).strict();
 
-export const EventFindManySchema: z.ZodType<Prisma.EventFindManyArgs> = z
-  .object({
-    select: EventFindManySelectSchema.optional(),
-    include: z.lazy(() => EventIncludeObjectSchema.optional()),
-    orderBy: z
-      .union([
-        EventOrderByWithRelationInputObjectSchema,
-        EventOrderByWithRelationInputObjectSchema.array(),
-      ])
-      .optional(),
-    where: EventWhereInputObjectSchema.optional(),
-    cursor: EventWhereUniqueInputObjectSchema.optional(),
-    take: z.number().optional(),
-    skip: z.number().optional(),
-    distinct: z.union([EventScalarFieldEnumSchema, EventScalarFieldEnumSchema.array()]).optional(),
-  })
-  .strict() as unknown as z.ZodType<Prisma.EventFindManyArgs>;
+export const EventFindManySchema: z.ZodType<Prisma.EventFindManyArgs> = z.object({ select: EventFindManySelectSchema.optional(), include: z.lazy(() => EventIncludeObjectSchema.optional()), orderBy: z.union([EventOrderByWithRelationInputObjectSchema, EventOrderByWithRelationInputObjectSchema.array()]).optional(), where: EventWhereInputObjectSchema.optional(), cursor: EventWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), distinct: z.union([EventScalarFieldEnumSchema, EventScalarFieldEnumSchema.array()]).optional() }).strict() as unknown as z.ZodType<Prisma.EventFindManyArgs>;
 
-export const EventFindManyZodSchema = z
-  .object({
-    select: EventFindManySelectSchema.optional(),
-    include: z.lazy(() => EventIncludeObjectSchema.optional()),
-    orderBy: z
-      .union([
-        EventOrderByWithRelationInputObjectSchema,
-        EventOrderByWithRelationInputObjectSchema.array(),
-      ])
-      .optional(),
-    where: EventWhereInputObjectSchema.optional(),
-    cursor: EventWhereUniqueInputObjectSchema.optional(),
-    take: z.number().optional(),
-    skip: z.number().optional(),
-    distinct: z.union([EventScalarFieldEnumSchema, EventScalarFieldEnumSchema.array()]).optional(),
-  })
-  .strict();
+export const EventFindManyZodSchema = z.object({ select: EventFindManySelectSchema.optional(), include: z.lazy(() => EventIncludeObjectSchema.optional()), orderBy: z.union([EventOrderByWithRelationInputObjectSchema, EventOrderByWithRelationInputObjectSchema.array()]).optional(), where: EventWhereInputObjectSchema.optional(), cursor: EventWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), distinct: z.union([EventScalarFieldEnumSchema, EventScalarFieldEnumSchema.array()]).optional() }).strict();

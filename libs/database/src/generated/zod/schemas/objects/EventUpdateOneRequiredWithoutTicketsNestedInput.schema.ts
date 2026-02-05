@@ -7,29 +7,14 @@ import { EventUpsertWithoutTicketsInputObjectSchema as EventUpsertWithoutTickets
 import { EventWhereUniqueInputObjectSchema as EventWhereUniqueInputObjectSchema } from './EventWhereUniqueInput.schema';
 import { EventUpdateToOneWithWhereWithoutTicketsInputObjectSchema as EventUpdateToOneWithWhereWithoutTicketsInputObjectSchema } from './EventUpdateToOneWithWhereWithoutTicketsInput.schema';
 import { EventUpdateWithoutTicketsInputObjectSchema as EventUpdateWithoutTicketsInputObjectSchema } from './EventUpdateWithoutTicketsInput.schema';
-import { EventUncheckedUpdateWithoutTicketsInputObjectSchema as EventUncheckedUpdateWithoutTicketsInputObjectSchema } from './EventUncheckedUpdateWithoutTicketsInput.schema';
+import { EventUncheckedUpdateWithoutTicketsInputObjectSchema as EventUncheckedUpdateWithoutTicketsInputObjectSchema } from './EventUncheckedUpdateWithoutTicketsInput.schema'
 
-const makeSchema = () =>
-  z
-    .object({
-      create: z
-        .union([
-          z.lazy(() => EventCreateWithoutTicketsInputObjectSchema),
-          z.lazy(() => EventUncheckedCreateWithoutTicketsInputObjectSchema),
-        ])
-        .optional(),
-      connectOrCreate: z.lazy(() => EventCreateOrConnectWithoutTicketsInputObjectSchema).optional(),
-      upsert: z.lazy(() => EventUpsertWithoutTicketsInputObjectSchema).optional(),
-      connect: z.lazy(() => EventWhereUniqueInputObjectSchema).optional(),
-      update: z
-        .union([
-          z.lazy(() => EventUpdateToOneWithWhereWithoutTicketsInputObjectSchema),
-          z.lazy(() => EventUpdateWithoutTicketsInputObjectSchema),
-          z.lazy(() => EventUncheckedUpdateWithoutTicketsInputObjectSchema),
-        ])
-        .optional(),
-    })
-    .strict();
-export const EventUpdateOneRequiredWithoutTicketsNestedInputObjectSchema: z.ZodType<Prisma.EventUpdateOneRequiredWithoutTicketsNestedInput> =
-  makeSchema() as unknown as z.ZodType<Prisma.EventUpdateOneRequiredWithoutTicketsNestedInput>;
+const makeSchema = () => z.object({
+  create: z.union([z.lazy(() => EventCreateWithoutTicketsInputObjectSchema), z.lazy(() => EventUncheckedCreateWithoutTicketsInputObjectSchema)]).optional(),
+  connectOrCreate: z.lazy(() => EventCreateOrConnectWithoutTicketsInputObjectSchema).optional(),
+  upsert: z.lazy(() => EventUpsertWithoutTicketsInputObjectSchema).optional(),
+  connect: z.lazy(() => EventWhereUniqueInputObjectSchema).optional(),
+  update: z.union([z.lazy(() => EventUpdateToOneWithWhereWithoutTicketsInputObjectSchema), z.lazy(() => EventUpdateWithoutTicketsInputObjectSchema), z.lazy(() => EventUncheckedUpdateWithoutTicketsInputObjectSchema)]).optional()
+}).strict();
+export const EventUpdateOneRequiredWithoutTicketsNestedInputObjectSchema: z.ZodType<Prisma.EventUpdateOneRequiredWithoutTicketsNestedInput> = makeSchema() as unknown as z.ZodType<Prisma.EventUpdateOneRequiredWithoutTicketsNestedInput>;
 export const EventUpdateOneRequiredWithoutTicketsNestedInputObjectZodSchema = makeSchema();

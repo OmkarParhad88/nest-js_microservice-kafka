@@ -1,3 +1,4 @@
 {
-  "prisma.pinToPrisma6": true
+  "prisma.pinToPrisma6": true,
+  "kafka.clusters.selected": "kafka-bG9jYWxob3N0OjkwOTI"
 }

@@ -6,20 +6,6 @@ import { TicketUpdateInputObjectSchema as TicketUpdateInputObjectSchema } from '
 import { TicketUncheckedUpdateInputObjectSchema as TicketUncheckedUpdateInputObjectSchema } from './objects/TicketUncheckedUpdateInput.schema';
 import { TicketWhereUniqueInputObjectSchema as TicketWhereUniqueInputObjectSchema } from './objects/TicketWhereUniqueInput.schema';
 
-export const TicketUpdateOneSchema: z.ZodType<Prisma.TicketUpdateArgs> = z
-  .object({
-    select: TicketSelectObjectSchema.optional(),
-    include: TicketIncludeObjectSchema.optional(),
-    data: z.union([TicketUpdateInputObjectSchema, TicketUncheckedUpdateInputObjectSchema]),
-    where: TicketWhereUniqueInputObjectSchema,
-  })
-  .strict() as unknown as z.ZodType<Prisma.TicketUpdateArgs>;
+export const TicketUpdateOneSchema: z.ZodType<Prisma.TicketUpdateArgs> = z.object({ select: TicketSelectObjectSchema.optional(), include: TicketIncludeObjectSchema.optional(), data: z.union([TicketUpdateInputObjectSchema, TicketUncheckedUpdateInputObjectSchema]), where: TicketWhereUniqueInputObjectSchema }).strict() as unknown as z.ZodType<Prisma.TicketUpdateArgs>;
 
-export const TicketUpdateOneZodSchema = z
-  .object({
-    select: TicketSelectObjectSchema.optional(),
-    include: TicketIncludeObjectSchema.optional(),
-    data: z.union([TicketUpdateInputObjectSchema, TicketUncheckedUpdateInputObjectSchema]),
-    where: TicketWhereUniqueInputObjectSchema,
-  })
-  .strict();
+export const TicketUpdateOneZodSchema = z.object({ select: TicketSelectObjectSchema.optional(), include: TicketIncludeObjectSchema.optional(), data: z.union([TicketUpdateInputObjectSchema, TicketUncheckedUpdateInputObjectSchema]), where: TicketWhereUniqueInputObjectSchema }).strict();

@@ -10,44 +10,6 @@ import { TicketMaxAggregateInputObjectSchema as TicketMaxAggregateInputObjectSch
 import { TicketAvgAggregateInputObjectSchema as TicketAvgAggregateInputObjectSchema } from './objects/TicketAvgAggregateInput.schema';
 import { TicketSumAggregateInputObjectSchema as TicketSumAggregateInputObjectSchema } from './objects/TicketSumAggregateInput.schema';
 
-export const TicketGroupBySchema: z.ZodType<Prisma.TicketGroupByArgs> = z
-  .object({
-    where: TicketWhereInputObjectSchema.optional(),
-    orderBy: z
-      .union([
-        TicketOrderByWithAggregationInputObjectSchema,
-        TicketOrderByWithAggregationInputObjectSchema.array(),
-      ])
-      .optional(),
-    having: TicketScalarWhereWithAggregatesInputObjectSchema.optional(),
-    take: z.number().optional(),
-    skip: z.number().optional(),
-    by: z.array(TicketScalarFieldEnumSchema),
-    _count: z.union([z.literal(true), TicketCountAggregateInputObjectSchema]).optional(),
-    _min: TicketMinAggregateInputObjectSchema.optional(),
-    _max: TicketMaxAggregateInputObjectSchema.optional(),
-    _avg: TicketAvgAggregateInputObjectSchema.optional(),
-    _sum: TicketSumAggregateInputObjectSchema.optional(),
-  })
-  .strict() as unknown as z.ZodType<Prisma.TicketGroupByArgs>;
+export const TicketGroupBySchema: z.ZodType<Prisma.TicketGroupByArgs> = z.object({ where: TicketWhereInputObjectSchema.optional(), orderBy: z.union([TicketOrderByWithAggregationInputObjectSchema, TicketOrderByWithAggregationInputObjectSchema.array()]).optional(), having: TicketScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(TicketScalarFieldEnumSchema), _count: z.union([ z.literal(true), TicketCountAggregateInputObjectSchema ]).optional(), _min: TicketMinAggregateInputObjectSchema.optional(), _max: TicketMaxAggregateInputObjectSchema.optional(), _avg: TicketAvgAggregateInputObjectSchema.optional(), _sum: TicketSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.TicketGroupByArgs>;
 
-export const TicketGroupByZodSchema = z
-  .object({
-    where: TicketWhereInputObjectSchema.optional(),
-    orderBy: z
-      .union([
-        TicketOrderByWithAggregationInputObjectSchema,
-        TicketOrderByWithAggregationInputObjectSchema.array(),
-      ])
-      .optional(),
-    having: TicketScalarWhereWithAggregatesInputObjectSchema.optional(),
-    take: z.number().optional(),
-    skip: z.number().optional(),
-    by: z.array(TicketScalarFieldEnumSchema),
-    _count: z.union([z.literal(true), TicketCountAggregateInputObjectSchema]).optional(),
-    _min: TicketMinAggregateInputObjectSchema.optional(),
-    _max: TicketMaxAggregateInputObjectSchema.optional(),
-    _avg: TicketAvgAggregateInputObjectSchema.optional(),
-    _sum: TicketSumAggregateInputObjectSchema.optional(),
-  })
-  .strict();
+export const TicketGroupByZodSchema = z.object({ where: TicketWhereInputObjectSchema.optional(), orderBy: z.union([TicketOrderByWithAggregationInputObjectSchema, TicketOrderByWithAggregationInputObjectSchema.array()]).optional(), having: TicketScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(TicketScalarFieldEnumSchema), _count: z.union([ z.literal(true), TicketCountAggregateInputObjectSchema ]).optional(), _min: TicketMinAggregateInputObjectSchema.optional(), _max: TicketMaxAggregateInputObjectSchema.optional(), _avg: TicketAvgAggregateInputObjectSchema.optional(), _sum: TicketSumAggregateInputObjectSchema.optional() }).strict();

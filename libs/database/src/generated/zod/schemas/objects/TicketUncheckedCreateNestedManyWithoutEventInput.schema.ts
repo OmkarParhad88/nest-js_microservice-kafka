@@ -4,34 +4,13 @@ import { TicketCreateWithoutEventInputObjectSchema as TicketCreateWithoutEventIn
 import { TicketUncheckedCreateWithoutEventInputObjectSchema as TicketUncheckedCreateWithoutEventInputObjectSchema } from './TicketUncheckedCreateWithoutEventInput.schema';
 import { TicketCreateOrConnectWithoutEventInputObjectSchema as TicketCreateOrConnectWithoutEventInputObjectSchema } from './TicketCreateOrConnectWithoutEventInput.schema';
 import { TicketCreateManyEventInputEnvelopeObjectSchema as TicketCreateManyEventInputEnvelopeObjectSchema } from './TicketCreateManyEventInputEnvelope.schema';
-import { TicketWhereUniqueInputObjectSchema as TicketWhereUniqueInputObjectSchema } from './TicketWhereUniqueInput.schema';
+import { TicketWhereUniqueInputObjectSchema as TicketWhereUniqueInputObjectSchema } from './TicketWhereUniqueInput.schema'
 
-const makeSchema = () =>
-  z
-    .object({
-      create: z
-        .union([
-          z.lazy(() => TicketCreateWithoutEventInputObjectSchema),
-          z.lazy(() => TicketCreateWithoutEventInputObjectSchema).array(),
-          z.lazy(() => TicketUncheckedCreateWithoutEventInputObjectSchema),
-          z.lazy(() => TicketUncheckedCreateWithoutEventInputObjectSchema).array(),
-        ])
-        .optional(),
-      connectOrCreate: z
-        .union([
-          z.lazy(() => TicketCreateOrConnectWithoutEventInputObjectSchema),
-          z.lazy(() => TicketCreateOrConnectWithoutEventInputObjectSchema).array(),
-        ])
-        .optional(),
-      createMany: z.lazy(() => TicketCreateManyEventInputEnvelopeObjectSchema).optional(),
-      connect: z
-        .union([
-          z.lazy(() => TicketWhereUniqueInputObjectSchema),
-          z.lazy(() => TicketWhereUniqueInputObjectSchema).array(),
-        ])
-        .optional(),
-    })
-    .strict();
-export const TicketUncheckedCreateNestedManyWithoutEventInputObjectSchema: z.ZodType<Prisma.TicketUncheckedCreateNestedManyWithoutEventInput> =
-  makeSchema() as unknown as z.ZodType<Prisma.TicketUncheckedCreateNestedManyWithoutEventInput>;
+const makeSchema = () => z.object({
+  create: z.union([z.lazy(() => TicketCreateWithoutEventInputObjectSchema), z.lazy(() => TicketCreateWithoutEventInputObjectSchema).array(), z.lazy(() => TicketUncheckedCreateWithoutEventInputObjectSchema), z.lazy(() => TicketUncheckedCreateWithoutEventInputObjectSchema).array()]).optional(),
+  connectOrCreate: z.union([z.lazy(() => TicketCreateOrConnectWithoutEventInputObjectSchema), z.lazy(() => TicketCreateOrConnectWithoutEventInputObjectSchema).array()]).optional(),
+  createMany: z.lazy(() => TicketCreateManyEventInputEnvelopeObjectSchema).optional(),
+  connect: z.union([z.lazy(() => TicketWhereUniqueInputObjectSchema), z.lazy(() => TicketWhereUniqueInputObjectSchema).array()]).optional()
+}).strict();
+export const TicketUncheckedCreateNestedManyWithoutEventInputObjectSchema: z.ZodType<Prisma.TicketUncheckedCreateNestedManyWithoutEventInput> = makeSchema() as unknown as z.ZodType<Prisma.TicketUncheckedCreateNestedManyWithoutEventInput>;
 export const TicketUncheckedCreateNestedManyWithoutEventInputObjectZodSchema = makeSchema();

@@ -4,22 +4,12 @@ import { TicketWhereUniqueInputObjectSchema as TicketWhereUniqueInputObjectSchem
 import { TicketUpdateWithoutEventInputObjectSchema as TicketUpdateWithoutEventInputObjectSchema } from './TicketUpdateWithoutEventInput.schema';
 import { TicketUncheckedUpdateWithoutEventInputObjectSchema as TicketUncheckedUpdateWithoutEventInputObjectSchema } from './TicketUncheckedUpdateWithoutEventInput.schema';
 import { TicketCreateWithoutEventInputObjectSchema as TicketCreateWithoutEventInputObjectSchema } from './TicketCreateWithoutEventInput.schema';
-import { TicketUncheckedCreateWithoutEventInputObjectSchema as TicketUncheckedCreateWithoutEventInputObjectSchema } from './TicketUncheckedCreateWithoutEventInput.schema';
+import { TicketUncheckedCreateWithoutEventInputObjectSchema as TicketUncheckedCreateWithoutEventInputObjectSchema } from './TicketUncheckedCreateWithoutEventInput.schema'
 
-const makeSchema = () =>
-  z
-    .object({
-      where: z.lazy(() => TicketWhereUniqueInputObjectSchema),
-      update: z.union([
-        z.lazy(() => TicketUpdateWithoutEventInputObjectSchema),
-        z.lazy(() => TicketUncheckedUpdateWithoutEventInputObjectSchema),
-      ]),
-      create: z.union([
-        z.lazy(() => TicketCreateWithoutEventInputObjectSchema),
-        z.lazy(() => TicketUncheckedCreateWithoutEventInputObjectSchema),
-      ]),
-    })
-    .strict();
-export const TicketUpsertWithWhereUniqueWithoutEventInputObjectSchema: z.ZodType<Prisma.TicketUpsertWithWhereUniqueWithoutEventInput> =
-  makeSchema() as unknown as z.ZodType<Prisma.TicketUpsertWithWhereUniqueWithoutEventInput>;
+const makeSchema = () => z.object({
+  where: z.lazy(() => TicketWhereUniqueInputObjectSchema),
+  update: z.union([z.lazy(() => TicketUpdateWithoutEventInputObjectSchema), z.lazy(() => TicketUncheckedUpdateWithoutEventInputObjectSchema)]),
+  create: z.union([z.lazy(() => TicketCreateWithoutEventInputObjectSchema), z.lazy(() => TicketUncheckedCreateWithoutEventInputObjectSchema)])
+}).strict();
+export const TicketUpsertWithWhereUniqueWithoutEventInputObjectSchema: z.ZodType<Prisma.TicketUpsertWithWhereUniqueWithoutEventInput> = makeSchema() as unknown as z.ZodType<Prisma.TicketUpsertWithWhereUniqueWithoutEventInput>;
 export const TicketUpsertWithWhereUniqueWithoutEventInputObjectZodSchema = makeSchema();
