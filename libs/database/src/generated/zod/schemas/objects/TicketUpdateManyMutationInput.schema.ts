@@ -5,18 +5,47 @@ import { TicketStatusSchema } from '../enums/TicketStatus.schema';
 import { EnumTicketStatusFieldUpdateOperationsInputObjectSchema as EnumTicketStatusFieldUpdateOperationsInputObjectSchema } from './EnumTicketStatusFieldUpdateOperationsInput.schema';
 import { IntFieldUpdateOperationsInputObjectSchema as IntFieldUpdateOperationsInputObjectSchema } from './IntFieldUpdateOperationsInput.schema';
 import { DateTimeFieldUpdateOperationsInputObjectSchema as DateTimeFieldUpdateOperationsInputObjectSchema } from './DateTimeFieldUpdateOperationsInput.schema';
-import { NullableDateTimeFieldUpdateOperationsInputObjectSchema as NullableDateTimeFieldUpdateOperationsInputObjectSchema } from './NullableDateTimeFieldUpdateOperationsInput.schema'
+import { NullableDateTimeFieldUpdateOperationsInputObjectSchema as NullableDateTimeFieldUpdateOperationsInputObjectSchema } from './NullableDateTimeFieldUpdateOperationsInput.schema';
 
-const makeSchema = () => z.object({
-  id: z.union([z.uuid(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
-  status: z.union([TicketStatusSchema, z.lazy(() => EnumTicketStatusFieldUpdateOperationsInputObjectSchema)]).optional(),
-  quantity: z.union([z.number().int(), z.lazy(() => IntFieldUpdateOperationsInputObjectSchema)]).optional(),
-  totalPrice: z.union([z.number().int(), z.lazy(() => IntFieldUpdateOperationsInputObjectSchema)]).optional(),
-  ticketCode: z.union([z.string().max(20), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
-  purchasedAt: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
-  checkedInAt: z.union([z.coerce.date(), z.lazy(() => NullableDateTimeFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
-  createdAt: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
-  updatedAt: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional()
-}).strict();
-export const TicketUpdateManyMutationInputObjectSchema: z.ZodType<Prisma.TicketUpdateManyMutationInput> = makeSchema() as unknown as z.ZodType<Prisma.TicketUpdateManyMutationInput>;
+const makeSchema = () =>
+  z
+    .object({
+      id: z
+        .union([z.uuid(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)])
+        .optional(),
+      status: z
+        .union([
+          TicketStatusSchema,
+          z.lazy(() => EnumTicketStatusFieldUpdateOperationsInputObjectSchema),
+        ])
+        .optional(),
+      quantity: z
+        .union([z.number().int(), z.lazy(() => IntFieldUpdateOperationsInputObjectSchema)])
+        .optional(),
+      totalPrice: z
+        .union([z.number().int(), z.lazy(() => IntFieldUpdateOperationsInputObjectSchema)])
+        .optional(),
+      ticketCode: z
+        .union([z.string().max(20), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)])
+        .optional(),
+      purchasedAt: z
+        .union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)])
+        .optional(),
+      checkedInAt: z
+        .union([
+          z.coerce.date(),
+          z.lazy(() => NullableDateTimeFieldUpdateOperationsInputObjectSchema),
+        ])
+        .optional()
+        .nullable(),
+      createdAt: z
+        .union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)])
+        .optional(),
+      updatedAt: z
+        .union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)])
+        .optional(),
+    })
+    .strict();
+export const TicketUpdateManyMutationInputObjectSchema: z.ZodType<Prisma.TicketUpdateManyMutationInput> =
+  makeSchema() as unknown as z.ZodType<Prisma.TicketUpdateManyMutationInput>;
 export const TicketUpdateManyMutationInputObjectZodSchema = makeSchema();

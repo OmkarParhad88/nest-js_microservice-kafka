@@ -8,6 +8,22 @@ import { UserUncheckedCreateInputObjectSchema as UserUncheckedCreateInputObjectS
 import { UserUpdateInputObjectSchema as UserUpdateInputObjectSchema } from './objects/UserUpdateInput.schema';
 import { UserUncheckedUpdateInputObjectSchema as UserUncheckedUpdateInputObjectSchema } from './objects/UserUncheckedUpdateInput.schema';
 
-export const UserUpsertOneSchema: z.ZodType<Prisma.UserUpsertArgs> = z.object({ select: UserSelectObjectSchema.optional(), include: UserIncludeObjectSchema.optional(), where: UserWhereUniqueInputObjectSchema, create: z.union([ UserCreateInputObjectSchema, UserUncheckedCreateInputObjectSchema ]), update: z.union([ UserUpdateInputObjectSchema, UserUncheckedUpdateInputObjectSchema ]) }).strict() as unknown as z.ZodType<Prisma.UserUpsertArgs>;
+export const UserUpsertOneSchema: z.ZodType<Prisma.UserUpsertArgs> = z
+  .object({
+    select: UserSelectObjectSchema.optional(),
+    include: UserIncludeObjectSchema.optional(),
+    where: UserWhereUniqueInputObjectSchema,
+    create: z.union([UserCreateInputObjectSchema, UserUncheckedCreateInputObjectSchema]),
+    update: z.union([UserUpdateInputObjectSchema, UserUncheckedUpdateInputObjectSchema]),
+  })
+  .strict() as unknown as z.ZodType<Prisma.UserUpsertArgs>;
 
-export const UserUpsertOneZodSchema = z.object({ select: UserSelectObjectSchema.optional(), include: UserIncludeObjectSchema.optional(), where: UserWhereUniqueInputObjectSchema, create: z.union([ UserCreateInputObjectSchema, UserUncheckedCreateInputObjectSchema ]), update: z.union([ UserUpdateInputObjectSchema, UserUncheckedUpdateInputObjectSchema ]) }).strict();
+export const UserUpsertOneZodSchema = z
+  .object({
+    select: UserSelectObjectSchema.optional(),
+    include: UserIncludeObjectSchema.optional(),
+    where: UserWhereUniqueInputObjectSchema,
+    create: z.union([UserCreateInputObjectSchema, UserUncheckedCreateInputObjectSchema]),
+    update: z.union([UserUpdateInputObjectSchema, UserUncheckedUpdateInputObjectSchema]),
+  })
+  .strict();

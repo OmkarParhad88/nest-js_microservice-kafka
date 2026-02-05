@@ -9,7 +9,8 @@ import { TicketScalarFieldEnumSchema } from './enums/TicketScalarFieldEnum.schem
 // Select schema needs to be in file to prevent circular imports
 //------------------------------------------------------
 
-export const TicketFindFirstSelectSchema: z.ZodType<Prisma.TicketSelect> = z.object({
+export const TicketFindFirstSelectSchema: z.ZodType<Prisma.TicketSelect> = z
+  .object({
     id: z.boolean().optional(),
     eventId: z.boolean().optional(),
     event: z.boolean().optional(),
@@ -22,10 +23,12 @@ export const TicketFindFirstSelectSchema: z.ZodType<Prisma.TicketSelect> = z.obj
     purchasedAt: z.boolean().optional(),
     checkedInAt: z.boolean().optional(),
     createdAt: z.boolean().optional(),
-    updatedAt: z.boolean().optional()
-  }).strict() as unknown as z.ZodType<Prisma.TicketSelect>;
+    updatedAt: z.boolean().optional(),
+  })
+  .strict() as unknown as z.ZodType<Prisma.TicketSelect>;
 
-export const TicketFindFirstSelectZodSchema = z.object({
+export const TicketFindFirstSelectZodSchema = z
+  .object({
     id: z.boolean().optional(),
     eventId: z.boolean().optional(),
     event: z.boolean().optional(),
@@ -38,9 +41,46 @@ export const TicketFindFirstSelectZodSchema = z.object({
     purchasedAt: z.boolean().optional(),
     checkedInAt: z.boolean().optional(),
     createdAt: z.boolean().optional(),
-    updatedAt: z.boolean().optional()
-  }).strict();
+    updatedAt: z.boolean().optional(),
+  })
+  .strict();
 
-export const TicketFindFirstSchema: z.ZodType<Prisma.TicketFindFirstArgs> = z.object({ select: TicketFindFirstSelectSchema.optional(), include: z.lazy(() => TicketIncludeObjectSchema.optional()), orderBy: z.union([TicketOrderByWithRelationInputObjectSchema, TicketOrderByWithRelationInputObjectSchema.array()]).optional(), where: TicketWhereInputObjectSchema.optional(), cursor: TicketWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), distinct: z.union([TicketScalarFieldEnumSchema, TicketScalarFieldEnumSchema.array()]).optional() }).strict() as unknown as z.ZodType<Prisma.TicketFindFirstArgs>;
+export const TicketFindFirstSchema: z.ZodType<Prisma.TicketFindFirstArgs> = z
+  .object({
+    select: TicketFindFirstSelectSchema.optional(),
+    include: z.lazy(() => TicketIncludeObjectSchema.optional()),
+    orderBy: z
+      .union([
+        TicketOrderByWithRelationInputObjectSchema,
+        TicketOrderByWithRelationInputObjectSchema.array(),
+      ])
+      .optional(),
+    where: TicketWhereInputObjectSchema.optional(),
+    cursor: TicketWhereUniqueInputObjectSchema.optional(),
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    distinct: z
+      .union([TicketScalarFieldEnumSchema, TicketScalarFieldEnumSchema.array()])
+      .optional(),
+  })
+  .strict() as unknown as z.ZodType<Prisma.TicketFindFirstArgs>;
 
-export const TicketFindFirstZodSchema = z.object({ select: TicketFindFirstSelectSchema.optional(), include: z.lazy(() => TicketIncludeObjectSchema.optional()), orderBy: z.union([TicketOrderByWithRelationInputObjectSchema, TicketOrderByWithRelationInputObjectSchema.array()]).optional(), where: TicketWhereInputObjectSchema.optional(), cursor: TicketWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), distinct: z.union([TicketScalarFieldEnumSchema, TicketScalarFieldEnumSchema.array()]).optional() }).strict();
+export const TicketFindFirstZodSchema = z
+  .object({
+    select: TicketFindFirstSelectSchema.optional(),
+    include: z.lazy(() => TicketIncludeObjectSchema.optional()),
+    orderBy: z
+      .union([
+        TicketOrderByWithRelationInputObjectSchema,
+        TicketOrderByWithRelationInputObjectSchema.array(),
+      ])
+      .optional(),
+    where: TicketWhereInputObjectSchema.optional(),
+    cursor: TicketWhereUniqueInputObjectSchema.optional(),
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    distinct: z
+      .union([TicketScalarFieldEnumSchema, TicketScalarFieldEnumSchema.array()])
+      .optional(),
+  })
+  .strict();

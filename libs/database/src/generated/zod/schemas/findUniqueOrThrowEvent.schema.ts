@@ -4,6 +4,18 @@ import { EventSelectObjectSchema as EventSelectObjectSchema } from './objects/Ev
 import { EventIncludeObjectSchema as EventIncludeObjectSchema } from './objects/EventInclude.schema';
 import { EventWhereUniqueInputObjectSchema as EventWhereUniqueInputObjectSchema } from './objects/EventWhereUniqueInput.schema';
 
-export const EventFindUniqueOrThrowSchema: z.ZodType<Prisma.EventFindUniqueOrThrowArgs> = z.object({ select: EventSelectObjectSchema.optional(), include: EventIncludeObjectSchema.optional(), where: EventWhereUniqueInputObjectSchema }).strict() as unknown as z.ZodType<Prisma.EventFindUniqueOrThrowArgs>;
+export const EventFindUniqueOrThrowSchema: z.ZodType<Prisma.EventFindUniqueOrThrowArgs> = z
+  .object({
+    select: EventSelectObjectSchema.optional(),
+    include: EventIncludeObjectSchema.optional(),
+    where: EventWhereUniqueInputObjectSchema,
+  })
+  .strict() as unknown as z.ZodType<Prisma.EventFindUniqueOrThrowArgs>;
 
-export const EventFindUniqueOrThrowZodSchema = z.object({ select: EventSelectObjectSchema.optional(), include: EventIncludeObjectSchema.optional(), where: EventWhereUniqueInputObjectSchema }).strict();
+export const EventFindUniqueOrThrowZodSchema = z
+  .object({
+    select: EventSelectObjectSchema.optional(),
+    include: EventIncludeObjectSchema.optional(),
+    where: EventWhereUniqueInputObjectSchema,
+  })
+  .strict();

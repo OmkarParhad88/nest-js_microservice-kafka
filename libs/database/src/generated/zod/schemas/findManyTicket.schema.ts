@@ -9,7 +9,8 @@ import { TicketScalarFieldEnumSchema } from './enums/TicketScalarFieldEnum.schem
 // Select schema needs to be in file to prevent circular imports
 //------------------------------------------------------
 
-export const TicketFindManySelectSchema: z.ZodType<Prisma.TicketSelect> = z.object({
+export const TicketFindManySelectSchema: z.ZodType<Prisma.TicketSelect> = z
+  .object({
     id: z.boolean().optional(),
     eventId: z.boolean().optional(),
     event: z.boolean().optional(),
@@ -22,10 +23,12 @@ export const TicketFindManySelectSchema: z.ZodType<Prisma.TicketSelect> = z.obje
     purchasedAt: z.boolean().optional(),
     checkedInAt: z.boolean().optional(),
     createdAt: z.boolean().optional(),
-    updatedAt: z.boolean().optional()
-  }).strict() as unknown as z.ZodType<Prisma.TicketSelect>;
+    updatedAt: z.boolean().optional(),
+  })
+  .strict() as unknown as z.ZodType<Prisma.TicketSelect>;
 
-export const TicketFindManySelectZodSchema = z.object({
+export const TicketFindManySelectZodSchema = z
+  .object({
     id: z.boolean().optional(),
     eventId: z.boolean().optional(),
     event: z.boolean().optional(),
@@ -38,9 +41,46 @@ export const TicketFindManySelectZodSchema = z.object({
     purchasedAt: z.boolean().optional(),
     checkedInAt: z.boolean().optional(),
     createdAt: z.boolean().optional(),
-    updatedAt: z.boolean().optional()
-  }).strict();
+    updatedAt: z.boolean().optional(),
+  })
+  .strict();
 
-export const TicketFindManySchema: z.ZodType<Prisma.TicketFindManyArgs> = z.object({ select: TicketFindManySelectSchema.optional(), include: z.lazy(() => TicketIncludeObjectSchema.optional()), orderBy: z.union([TicketOrderByWithRelationInputObjectSchema, TicketOrderByWithRelationInputObjectSchema.array()]).optional(), where: TicketWhereInputObjectSchema.optional(), cursor: TicketWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), distinct: z.union([TicketScalarFieldEnumSchema, TicketScalarFieldEnumSchema.array()]).optional() }).strict() as unknown as z.ZodType<Prisma.TicketFindManyArgs>;
+export const TicketFindManySchema: z.ZodType<Prisma.TicketFindManyArgs> = z
+  .object({
+    select: TicketFindManySelectSchema.optional(),
+    include: z.lazy(() => TicketIncludeObjectSchema.optional()),
+    orderBy: z
+      .union([
+        TicketOrderByWithRelationInputObjectSchema,
+        TicketOrderByWithRelationInputObjectSchema.array(),
+      ])
+      .optional(),
+    where: TicketWhereInputObjectSchema.optional(),
+    cursor: TicketWhereUniqueInputObjectSchema.optional(),
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    distinct: z
+      .union([TicketScalarFieldEnumSchema, TicketScalarFieldEnumSchema.array()])
+      .optional(),
+  })
+  .strict() as unknown as z.ZodType<Prisma.TicketFindManyArgs>;
 
-export const TicketFindManyZodSchema = z.object({ select: TicketFindManySelectSchema.optional(), include: z.lazy(() => TicketIncludeObjectSchema.optional()), orderBy: z.union([TicketOrderByWithRelationInputObjectSchema, TicketOrderByWithRelationInputObjectSchema.array()]).optional(), where: TicketWhereInputObjectSchema.optional(), cursor: TicketWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), distinct: z.union([TicketScalarFieldEnumSchema, TicketScalarFieldEnumSchema.array()]).optional() }).strict();
+export const TicketFindManyZodSchema = z
+  .object({
+    select: TicketFindManySelectSchema.optional(),
+    include: z.lazy(() => TicketIncludeObjectSchema.optional()),
+    orderBy: z
+      .union([
+        TicketOrderByWithRelationInputObjectSchema,
+        TicketOrderByWithRelationInputObjectSchema.array(),
+      ])
+      .optional(),
+    where: TicketWhereInputObjectSchema.optional(),
+    cursor: TicketWhereUniqueInputObjectSchema.optional(),
+    take: z.number().optional(),
+    skip: z.number().optional(),
+    distinct: z
+      .union([TicketScalarFieldEnumSchema, TicketScalarFieldEnumSchema.array()])
+      .optional(),
+  })
+  .strict();

@@ -6,20 +6,50 @@ import { DateTimeFieldUpdateOperationsInputObjectSchema as DateTimeFieldUpdateOp
 import { IntFieldUpdateOperationsInputObjectSchema as IntFieldUpdateOperationsInputObjectSchema } from './IntFieldUpdateOperationsInput.schema';
 import { EventStatusSchema } from '../enums/EventStatus.schema';
 import { EnumEventStatusFieldUpdateOperationsInputObjectSchema as EnumEventStatusFieldUpdateOperationsInputObjectSchema } from './EnumEventStatusFieldUpdateOperationsInput.schema';
-import { TicketUncheckedUpdateManyWithoutEventNestedInputObjectSchema as TicketUncheckedUpdateManyWithoutEventNestedInputObjectSchema } from './TicketUncheckedUpdateManyWithoutEventNestedInput.schema'
+import { TicketUncheckedUpdateManyWithoutEventNestedInputObjectSchema as TicketUncheckedUpdateManyWithoutEventNestedInputObjectSchema } from './TicketUncheckedUpdateManyWithoutEventNestedInput.schema';
 
-const makeSchema = () => z.object({
-  id: z.union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
-  title: z.union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
-  description: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
-  date: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
-  location: z.union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
-  capacity: z.union([z.number().int(), z.lazy(() => IntFieldUpdateOperationsInputObjectSchema)]).optional(),
-  price: z.union([z.number().int(), z.lazy(() => IntFieldUpdateOperationsInputObjectSchema)]).optional(),
-  status: z.union([EventStatusSchema, z.lazy(() => EnumEventStatusFieldUpdateOperationsInputObjectSchema)]).optional(),
-  createdAt: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
-  updatedAt: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
-  tickets: z.lazy(() => TicketUncheckedUpdateManyWithoutEventNestedInputObjectSchema).optional()
-}).strict();
-export const EventUncheckedUpdateWithoutOrganizerInputObjectSchema: z.ZodType<Prisma.EventUncheckedUpdateWithoutOrganizerInput> = makeSchema() as unknown as z.ZodType<Prisma.EventUncheckedUpdateWithoutOrganizerInput>;
+const makeSchema = () =>
+  z
+    .object({
+      id: z
+        .union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)])
+        .optional(),
+      title: z
+        .union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)])
+        .optional(),
+      description: z
+        .union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)])
+        .optional()
+        .nullable(),
+      date: z
+        .union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)])
+        .optional(),
+      location: z
+        .union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)])
+        .optional(),
+      capacity: z
+        .union([z.number().int(), z.lazy(() => IntFieldUpdateOperationsInputObjectSchema)])
+        .optional(),
+      price: z
+        .union([z.number().int(), z.lazy(() => IntFieldUpdateOperationsInputObjectSchema)])
+        .optional(),
+      status: z
+        .union([
+          EventStatusSchema,
+          z.lazy(() => EnumEventStatusFieldUpdateOperationsInputObjectSchema),
+        ])
+        .optional(),
+      createdAt: z
+        .union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)])
+        .optional(),
+      updatedAt: z
+        .union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)])
+        .optional(),
+      tickets: z
+        .lazy(() => TicketUncheckedUpdateManyWithoutEventNestedInputObjectSchema)
+        .optional(),
+    })
+    .strict();
+export const EventUncheckedUpdateWithoutOrganizerInputObjectSchema: z.ZodType<Prisma.EventUncheckedUpdateWithoutOrganizerInput> =
+  makeSchema() as unknown as z.ZodType<Prisma.EventUncheckedUpdateWithoutOrganizerInput>;
 export const EventUncheckedUpdateWithoutOrganizerInputObjectZodSchema = makeSchema();

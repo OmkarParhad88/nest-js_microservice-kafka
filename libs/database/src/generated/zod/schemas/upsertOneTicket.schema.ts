@@ -8,6 +8,22 @@ import { TicketUncheckedCreateInputObjectSchema as TicketUncheckedCreateInputObj
 import { TicketUpdateInputObjectSchema as TicketUpdateInputObjectSchema } from './objects/TicketUpdateInput.schema';
 import { TicketUncheckedUpdateInputObjectSchema as TicketUncheckedUpdateInputObjectSchema } from './objects/TicketUncheckedUpdateInput.schema';
 
-export const TicketUpsertOneSchema: z.ZodType<Prisma.TicketUpsertArgs> = z.object({ select: TicketSelectObjectSchema.optional(), include: TicketIncludeObjectSchema.optional(), where: TicketWhereUniqueInputObjectSchema, create: z.union([ TicketCreateInputObjectSchema, TicketUncheckedCreateInputObjectSchema ]), update: z.union([ TicketUpdateInputObjectSchema, TicketUncheckedUpdateInputObjectSchema ]) }).strict() as unknown as z.ZodType<Prisma.TicketUpsertArgs>;
+export const TicketUpsertOneSchema: z.ZodType<Prisma.TicketUpsertArgs> = z
+  .object({
+    select: TicketSelectObjectSchema.optional(),
+    include: TicketIncludeObjectSchema.optional(),
+    where: TicketWhereUniqueInputObjectSchema,
+    create: z.union([TicketCreateInputObjectSchema, TicketUncheckedCreateInputObjectSchema]),
+    update: z.union([TicketUpdateInputObjectSchema, TicketUncheckedUpdateInputObjectSchema]),
+  })
+  .strict() as unknown as z.ZodType<Prisma.TicketUpsertArgs>;
 
-export const TicketUpsertOneZodSchema = z.object({ select: TicketSelectObjectSchema.optional(), include: TicketIncludeObjectSchema.optional(), where: TicketWhereUniqueInputObjectSchema, create: z.union([ TicketCreateInputObjectSchema, TicketUncheckedCreateInputObjectSchema ]), update: z.union([ TicketUpdateInputObjectSchema, TicketUncheckedUpdateInputObjectSchema ]) }).strict();
+export const TicketUpsertOneZodSchema = z
+  .object({
+    select: TicketSelectObjectSchema.optional(),
+    include: TicketIncludeObjectSchema.optional(),
+    where: TicketWhereUniqueInputObjectSchema,
+    create: z.union([TicketCreateInputObjectSchema, TicketUncheckedCreateInputObjectSchema]),
+    update: z.union([TicketUpdateInputObjectSchema, TicketUncheckedUpdateInputObjectSchema]),
+  })
+  .strict();

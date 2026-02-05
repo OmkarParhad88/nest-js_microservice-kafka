@@ -26,7 +26,6 @@ export class AuthServiceService implements OnModuleInit {
   }
 
   async userRegister(data: Prisma.UserCreateInput): Promise<{ message: string; data: any }> {
-    this.kafkaService.emit(KAFKA_TOPIC.USER_REGISTERED, data);
     let user = await this.dbService.user.findUnique({
       where: {
         email: data.email,
@@ -50,6 +49,7 @@ export class AuthServiceService implements OnModuleInit {
     this.kafkaService.emit(KAFKA_TOPIC.USER_REGISTERED, {
       userId: user.id,
       email: user.email,
+      name: user.name,
       timestamp: new Date().getTime(),
     });
 
