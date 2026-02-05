@@ -15,7 +15,7 @@ export class EventServiceService implements OnModuleInit {
   constructor(
     private readonly dbService: DatabaseService,
     @Inject(KAFKA_SERVICE) private readonly kafkaClient: ClientKafka,
-  ) { }
+  ) {}
 
   async onModuleInit() {
     await this.kafkaClient.connect();

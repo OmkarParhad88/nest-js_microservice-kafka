@@ -5,3 +5,4 @@
 
 export { UserInputSchema } from './User.input';
 export { EventInputSchema } from './Event.input';
+export { TicketInputSchema } from './Ticket.input';

@@ -10,7 +10,7 @@ import {
 
 @Controller()
 export class EventServiceController {
-  constructor(private readonly eventService: EventServiceService) { }
+  constructor(private readonly eventService: EventServiceService) {}
 
   @Post()
   async create(

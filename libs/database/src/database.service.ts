@@ -19,7 +19,7 @@ export class DatabaseService extends PrismaClient {
     const adapter = new PrismaPg(pool);
     super({
       adapter,
-      log: ['warn', 'error'],
+      log: ['query', 'info', 'warn', 'error'],
     });
   }
 }

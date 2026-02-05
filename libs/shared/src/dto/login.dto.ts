@@ -8,4 +8,4 @@ export const LoginSchema = UserCreateInputObjectZodSchema.omit({
   role: true,
 });
 
-export class LoginDto extends createZodDto(LoginSchema) { }
+export class LoginDto extends createZodDto(LoginSchema) {}

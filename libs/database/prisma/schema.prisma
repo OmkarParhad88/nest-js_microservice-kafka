@@ -66,3 +66,32 @@ model Event {
 
   @@index([createdAt])
 }
+
+enum TicketStatus {
+  PENDING
+  CONFIRMED
+  CHECKED_IN
+  CANCELLED
+}
+
+model Ticket {
+  /// @zod.uuid()
+  id          String       @id @default(uuid()) @db.Uuid
+  /// @zod.uuid()
+  eventId     String       @db.Uuid
+  event       Event        @relation(fields: [eventId], references: [id])
+  /// @zod.uuid()
+  userId      String       @db.Uuid
+  user        User         @relation(fields: [userId], references: [id])
+  status      TicketStatus @default(PENDING)
+  quantity    Int          @default(1)
+  totalPrice  Int          @default(0)
+  ticketCode  String       @unique @db.VarChar(20)
+  purchasedAt DateTime     @default(now())
+  checkedInAt DateTime?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@index([eventId])
+  @@index([userId])
+}

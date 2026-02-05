@@ -1,12 +1,9 @@
 import * as z from 'zod';
 import type { Prisma } from '../../../prisma/client';
-import { EventWhereInputObjectSchema as EventWhereInputObjectSchema } from './EventWhereInput.schema';
+import { EventWhereInputObjectSchema as EventWhereInputObjectSchema } from './EventWhereInput.schema'
 
-const makeSchema = () =>
-  z
-    .object({
-      where: z.lazy(() => EventWhereInputObjectSchema).optional(),
-    })
-    .strict();
+const makeSchema = () => z.object({
+  where: z.lazy(() => EventWhereInputObjectSchema).optional()
+}).strict();
 export const UserCountOutputTypeCountEventsArgsObjectSchema = makeSchema();
 export const UserCountOutputTypeCountEventsArgsObjectZodSchema = makeSchema();

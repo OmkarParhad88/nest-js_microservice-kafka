@@ -7,4 +7,4 @@ export const UpdateEventSchema = EventUpdateInputObjectZodSchema.omit({
   updatedAt: true,
 });
 
-export class UpdateEventDto extends createZodDto(UpdateEventSchema) { }
+export class UpdateEventDto extends createZodDto(UpdateEventSchema) {}

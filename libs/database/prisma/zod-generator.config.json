@@ -3,10 +3,10 @@
   "pureModels": false,
   "variants": {
     "pure": {
-      "enabled": false
+      "enabled": true
     },
     "input": {
-      "enabled": false
+      "enabled": true
     },
     "result": {
       "enabled": false

@@ -9,7 +9,8 @@ export const UserInputSchema = z.object({
     role: RoleSchema,
     createdAt: z.date(),
     updatedAt: z.date(),
-    events: z.array(z.unknown())
+    events: z.array(z.unknown()),
+    tickets: z.array(z.unknown())
 }).strict();
 
 export type UserInputType = z.infer<typeof UserInputSchema>;

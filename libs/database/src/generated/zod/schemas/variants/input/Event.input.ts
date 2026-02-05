@@ -12,6 +12,7 @@ export const EventInputSchema = z.object({
     status: EventStatusSchema,
     organizerId: z.uuid(),
     organizer: z.unknown(),
+    tickets: z.array(z.unknown()),
     createdAt: z.date(),
     updatedAt: z.date()
 }).strict();

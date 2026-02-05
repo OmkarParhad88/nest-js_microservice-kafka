@@ -5,3 +5,6 @@ export * from './eventQuery.dto';
 export * from './updateEvent.dto';
 export * from './uniqueUserId.dto';
 export * from './eventHeaders.dto';
+export * from './purchase-ticket.dto';
+export * from './check-in-ticket.dto';
+export * from './Uuid.dto';

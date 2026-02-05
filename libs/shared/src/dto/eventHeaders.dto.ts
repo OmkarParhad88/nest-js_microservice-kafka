@@ -9,4 +9,4 @@ export const EventHeadersSchema = z
   })
   .strict();
 
-export class EventHeadersDto extends createZodDto(EventHeadersSchema) { }
+export class EventHeadersDto extends createZodDto(EventHeadersSchema) {}

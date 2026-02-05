@@ -7,7 +7,7 @@ import { CreateEventDto, EventQueryDto, SERVICES_PORT, UpdateEventDto } from '@a
 export class EventService {
   private readonly eventServiceUrl = `http://localhost:${SERVICES_PORT.EVENT_SERVICE}`;
 
-  constructor(private readonly httpService: HttpService) { }
+  constructor(private readonly httpService: HttpService) {}
 
   async create(createEventDto: CreateEventDto, organizerId: string) {
     const response = await firstValueFrom(

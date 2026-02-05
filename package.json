@@ -12,6 +12,7 @@
     "dev": "nest start --watch",
     "dev:auth": "nest start --watch auth-service",
     "dev:event": "nest start --watch event-service",
+    "dev:ticket": "nest start --watch ticket-service",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/apps/api-gateway/main",

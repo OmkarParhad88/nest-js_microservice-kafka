@@ -7,4 +7,4 @@ export const CreateEventSchema = EventCreateInputObjectZodSchema.omit({
   organizer: true,
 });
 
-export class CreateEventDto extends createZodDto(CreateEventSchema) { }
+export class CreateEventDto extends createZodDto(CreateEventSchema) {}

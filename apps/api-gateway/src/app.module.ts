@@ -7,6 +7,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './jwt.strategy';
 import { PassportModule } from '@nestjs/passport';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { TicketModule } from './ticket/ticket.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       inject: [ConfigService],
     }),
     PassportModule,
+    TicketModule,
   ],
   controllers: [AppController],
   providers: [AppService, JwtStrategy],
